@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -29,8 +27,7 @@ public class ColorCheckScript : MonoBehaviour
         if (playerColor.color != _playerControl.ringColor) 
         {
             StartCoroutine(WaitForDeath());
-            //_playerControl.playerSpeed = 0;
-            //_playerControl.rotateSpeed = 0;
+            
         }
 
         else if (playerColor.color == _playerControl.ringColor)
