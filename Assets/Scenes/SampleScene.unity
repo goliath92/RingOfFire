@@ -478,7 +478,6 @@ GameObject:
   - component: {fileID: 650722883}
   - component: {fileID: 650722882}
   - component: {fileID: 650722885}
-  - component: {fileID: 650722884}
   - component: {fileID: 650722886}
   m_Layer: 0
   m_Name: Player
@@ -499,7 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a4cd4ffe3fd974fbf691c388342263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
   laneDistance: 3
   ringColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &650722883
@@ -519,20 +517,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &650722884
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650722880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &650722885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1082,7 +1066,7 @@ GameObject:
   - component: {fileID: 1043290258}
   - component: {fileID: 1043290257}
   m_Layer: 0
-  m_Name: PlayerColor
+  m_Name: PlayerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
