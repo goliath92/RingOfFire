@@ -5,10 +5,12 @@ using Random = UnityEngine.Random;
 public class ColorCheckScript : MonoBehaviour
 {
     private PlayerControl _playerControl;
-    
-    [SerializeField] private Color[] Colors ;
 
+    [SerializeField] private Color[] Colors;
     public Material playerColor;
+
+    
+    
 
     private void Start()
     {
@@ -41,6 +43,7 @@ public class ColorCheckScript : MonoBehaviour
     public void chooseRandomColor()
     {
         playerColor.color = Colors[Random.Range(0, 3)];
+        Debug.Log("New Color Assigned.");                  // Sometimes color doesn't change
     }
 
     private IEnumerator WaitForColorChange()
@@ -55,5 +58,6 @@ public class ColorCheckScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Time.timeScale = 0;
+        Debug.Log("Player Died.");
     }
 }

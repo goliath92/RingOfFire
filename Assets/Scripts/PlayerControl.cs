@@ -1,7 +1,5 @@
 using UnityEngine;
 
-
-
 public class PlayerControl : MonoBehaviour
 {
     private CharacterController controller;
@@ -16,17 +14,14 @@ public class PlayerControl : MonoBehaviour
 
     //Color
     private ColorCheckScript _colorCheckScript;
-    public Color ringColor;                                // ??????????????????????????????
+    public Color ringColor;                                
 
 
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
-
         _colorCheckScript = GetComponent<ColorCheckScript>();
-
-        
     }
 
     private void Update()
@@ -67,31 +62,35 @@ public class PlayerControl : MonoBehaviour
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
 
     }
-    
 
-
+  
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Finish"))                    // stop when reaching the finish line
         {
+            Debug.Log("Mission Completed");
+
             other.gameObject.SetActive(false);
+            Time.timeScale = 0;
+
+
         }
  
         if (other.gameObject.CompareTag("RedRing"))             // change color when pass a ring
         {            
-            ringColor = Color.red;                           // ??????????????????????????????
+            ringColor = Color.red;                           
             _colorCheckScript.checkColor();                  // check if player enters wrong color        
         }
 
         if (other.gameObject.CompareTag("BlueRing"))
         {      
-            ringColor = Color.blue;                         // ??????????????????????????????
+            ringColor = Color.blue;                         
             _colorCheckScript.checkColor();
         }
 
         if (other.gameObject.CompareTag("YellowRing"))
         {
-            ringColor = Color.yellow;                          // ??????????????????????????????
+            ringColor = Color.yellow;                          
             _colorCheckScript.checkColor();         
         }
 
