@@ -1,16 +1,16 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ColorCheckScript : MonoBehaviour
 {
     private PlayerControl _playerControl;
-    
-    [SerializeField] private Color[] Colors ;
 
+    [SerializeField] private Color[] Colors;
     public Material playerColor;
+
+    
+    
 
     private void Start()
     {
@@ -29,14 +29,14 @@ public class ColorCheckScript : MonoBehaviour
         if (playerColor.color != _playerControl.ringColor) 
         {
             StartCoroutine(WaitForDeath());
-            //_playerControl.playerSpeed = 0;
-            //_playerControl.rotateSpeed = 0;
+            
         }
 
         else if (playerColor.color == _playerControl.ringColor)
         {
-            StartCoroutine(WaitForColorChange());
-        }
+            StartCoroutine(collectTimer());
+            StartCoroutine(WaitForColorChange());                       
+        }                                                               
         
     }
     
@@ -44,9 +44,10 @@ public class ColorCheckScript : MonoBehaviour
     public void chooseRandomColor()
     {
         playerColor.color = Colors[Random.Range(0, 3)];
+        Debug.Log("New Color Assigned.");                  // Sometimes color doesn't change
     }
 
-    private IEnumerator WaitForColorChange()
+    private IEnumerator WaitForColorChange()               // without this coroutine, player changes color during the contact and dies either way
     {
         
         yield return new WaitForSeconds(0.1f);
@@ -56,7 +57,19 @@ public class ColorCheckScript : MonoBehaviour
 
     private IEnumerator WaitForDeath()
     {
+        Debug.Log("Player Died.");
         yield return new WaitForSeconds(0.5f);
         Time.timeScale = 0;
+        
+    }
+
+    private IEnumerator collectTimer()
+    {
+        this.gameObject.tag = "idle";
+
+        yield return new WaitForSeconds(0.2f);
+
+        this.gameObject.tag = "Player";
+
     }
 }
