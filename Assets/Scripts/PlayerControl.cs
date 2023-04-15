@@ -69,26 +69,22 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("Finish"))                    // stop when reaching the finish line
         {
             Debug.Log("Mission Completed");
-
-            other.gameObject.SetActive(false);
             Time.timeScale = 0;
-
-
         }
  
-        if (other.gameObject.CompareTag("RedRing"))             // change color when pass a ring
+        if (other.gameObject.CompareTag("RedRing") && gameObject.tag == "Player")             // change color when pass a ring
         {            
             ringColor = Color.red;                           
             _colorCheckScript.checkColor();                  // check if player enters wrong color        
         }
 
-        if (other.gameObject.CompareTag("BlueRing"))
+        if (other.gameObject.CompareTag("BlueRing") && gameObject.tag == "Player")
         {      
             ringColor = Color.blue;                         
             _colorCheckScript.checkColor();
         }
 
-        if (other.gameObject.CompareTag("YellowRing"))
+        if (other.gameObject.CompareTag("YellowRing") && gameObject.tag == "Player")
         {
             ringColor = Color.yellow;                          
             _colorCheckScript.checkColor();         
