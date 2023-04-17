@@ -7,15 +7,15 @@ public class ColorCheckScript : MonoBehaviour
     private PlayerControl _playerControl;
 
     [SerializeField] private Color[] Colors;
+
     public Material playerColor;
 
+    public int ringCounter = 0;
     
-    
-
     private void Start()
     {
-        _playerControl = GetComponent<PlayerControl>();
-        
+        _playerControl = GetComponent<PlayerControl>();      
+
         Colors = new[] {Color.red, Color.blue, Color.yellow};
         
         playerColor.color = Color.yellow;             // starting color
@@ -28,21 +28,21 @@ public class ColorCheckScript : MonoBehaviour
     {
         if (playerColor.color != _playerControl.ringColor) 
         {
-            StartCoroutine(WaitForDeath());
-            
+            StartCoroutine(WaitForDeath());            
         }
 
         else if (playerColor.color == _playerControl.ringColor)
         {
+            ringCounter++;                                   // increase collected ring number
             StartCoroutine(collectTimer());
-            StartCoroutine(WaitForColorChange());                       
+            StartCoroutine(WaitForColorChange());
         }                                                               
         
     }
     
 
     public void chooseRandomColor()
-    {
+    {       
         playerColor.color = Colors[Random.Range(0, 3)];
         Debug.Log("New Color Assigned.");                  // Sometimes color doesn't change
     }
@@ -63,7 +63,7 @@ public class ColorCheckScript : MonoBehaviour
         
     }
 
-    private IEnumerator collectTimer()
+    private IEnumerator collectTimer()               // to prevent multiple ring collection at the same time
     {
         this.gameObject.tag = "idle";
 
