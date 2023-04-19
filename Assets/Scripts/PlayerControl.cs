@@ -5,8 +5,8 @@ public class PlayerControl : MonoBehaviour
     private CharacterController controller;
 
     //Movement
-    public float speed = 7.0f;
-    private int desiredLane = 1;   //0:Left 1:middle 2:Right
+    public float speed = 15;                // Starting speed
+    private int desiredLane = 1;            //0:Left 1:middle 2:Right
     public float laneDistance = 3.0f;
 
     Vector3 moveVector;
@@ -45,28 +45,24 @@ public class PlayerControl : MonoBehaviour
         moveVector.x = (targetPosition - transform.position).normalized.x * speed;
         moveVector.y = -0.1f;
         moveVector.z = speed;
-
-        
     }
 
     private void FixedUpdate()
     {
         //Move the Player
         controller.Move(moveVector * Time.deltaTime);
-
     }
 
     private void MoveLane(bool goingRight)
     {
         desiredLane += (goingRight) ? 1 : -1;              // ? is a short way for if else logic (if 1 else -1 in here)
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
-
     }
 
   
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Finish"))                    // stop when reaching the finish line
+        if (other.gameObject.CompareTag("Finish"))                                           // stop when reaching the finish line
         {
             Debug.Log("Mission Completed");
             Time.timeScale = 0;
@@ -75,7 +71,7 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("RedRing") && gameObject.tag == "Player")             // change color when pass a ring
         {            
             ringColor = Color.red;                           
-            _colorCheckScript.checkColor();                  // check if player enters wrong color        
+            _colorCheckScript.checkColor();                                                   // check if player enters wrong color        
         }
 
         if (other.gameObject.CompareTag("BlueRing") && gameObject.tag == "Player")

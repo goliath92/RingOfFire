@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a4cd4ffe3fd974fbf691c388342263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   laneDistance: 3
   ringColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &650722883
@@ -1471,8 +1471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f916e5787dd4be46b8a011f38b3b568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 1568357258}
   Colors: []
   playerColor: {fileID: 2100000, guid: 528e75b7081a30a458ac5c66ac010fb5, type: 2}
+  ringCounter: 0
 --- !u!143 &650722886
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1980,7 +1982,7 @@ RectTransform:
   m_Children:
   - {fileID: 761721720}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2725,7 +2727,7 @@ Transform:
   - {fileID: 783536590}
   - {fileID: 2113832126}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &985377166 stripped
 Transform:
@@ -3913,8 +3915,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eda47ea544b2fb43ac264cc66c3e665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 650722880}
   text: {fileID: 761721721}
-  ringCounter: 0
+  speedTrigger: 4
+  speedCounter: 0
+  speedAmount: 3
 --- !u!4 &1568357260
 Transform:
   m_ObjectHideFlags: 0
@@ -3928,7 +3933,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1587623051 stripped
 Transform:
@@ -4137,7 +4142,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772779342
 GameObject:

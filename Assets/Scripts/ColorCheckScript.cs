@@ -6,25 +6,34 @@ public class ColorCheckScript : MonoBehaviour
 {
     private PlayerControl _playerControl;
 
+    public GameObject gameManager;
+    private GameManager _gameManager;
+
     [SerializeField] private Color[] Colors;
 
     public Material playerColor;
 
     public int ringCounter = 0;
     
+    
     private void Start()
     {
-        _playerControl = GetComponent<PlayerControl>();      
+        _playerControl = GetComponent<PlayerControl>();
+
+        _gameManager = gameManager.GetComponent<GameManager>();
 
         Colors = new[] {Color.red, Color.blue, Color.yellow};
-        
-        playerColor.color = Color.yellow;             // starting color
-        
-        _playerControl.ringColor = Color.yellow;      // a color for starting so it doesn't give any error
-    }
-    
 
-    public void checkColor()                                    // check if player enters wrong color
+        // starting color
+        playerColor.color = Color.yellow;             
+
+        // a color for starting so it doesn't give any error
+        _playerControl.ringColor = Color.yellow;      
+    }
+
+
+    
+    public void checkColor()                                 // check if player enters wrong color              
     {
         if (playerColor.color != _playerControl.ringColor) 
         {
@@ -33,21 +42,27 @@ public class ColorCheckScript : MonoBehaviour
 
         else if (playerColor.color == _playerControl.ringColor)
         {
-            ringCounter++;                                   // increase collected ring number
+            // ring counter
+            ringCounter++;
+
+            //increase speed after collecting some rings.
+            _gameManager.increaseSpeed();
+
+            // to prevent multiple ring collection at the same time
             StartCoroutine(collectTimer());
+
+            // without this coroutine, player changes color during the contact (correct color) and dies
             StartCoroutine(WaitForColorChange());
-        }                                                               
-        
+        }                                                                   
     }
     
-
     public void chooseRandomColor()
     {       
         playerColor.color = Colors[Random.Range(0, 3)];
-        Debug.Log("New Color Assigned.");                  // Sometimes color doesn't change
+        Debug.Log("New Color Assigned.");                  
     }
 
-    private IEnumerator WaitForColorChange()               // without this coroutine, player changes color during the contact and dies either way
+    private IEnumerator WaitForColorChange()
     {
         
         yield return new WaitForSeconds(0.1f);
@@ -63,7 +78,7 @@ public class ColorCheckScript : MonoBehaviour
         
     }
 
-    private IEnumerator collectTimer()               // to prevent multiple ring collection at the same time
+    private IEnumerator collectTimer()
     {
         this.gameObject.tag = "idle";
 
