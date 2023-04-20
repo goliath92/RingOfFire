@@ -1440,8 +1440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a4cd4ffe3fd974fbf691c388342263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  laneDistance: 3
+  speed: 20
   ringColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!4 &650722883
 Transform:
@@ -1607,7 +1606,7 @@ Transform:
   m_GameObject: {fileID: 690807521}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 239.1}
-  m_LocalScale: {x: 49.57465, y: 1, z: 0.9886346}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2045606258}
@@ -3917,7 +3916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 650722880}
   text: {fileID: 761721721}
-  speedTrigger: 4
+  speedTrigger: 5
   speedCounter: 0
   speedAmount: 3
 --- !u!4 &1568357260

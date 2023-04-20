@@ -7,7 +7,7 @@ public class PlayerControl : MonoBehaviour
     //Movement
     public float speed = 15;                // Starting speed
     private int desiredLane = 1;            //0:Left 1:middle 2:Right
-    public float laneDistance = 3.0f;
+    private float laneDistance = 3.0f;
 
     Vector3 moveVector;
     Vector3 targetPosition;
@@ -15,8 +15,6 @@ public class PlayerControl : MonoBehaviour
     //Color
     private ColorCheckScript _colorCheckScript;
     public Color ringColor;                                
-
-
 
     private void Start()
     {
@@ -42,7 +40,7 @@ public class PlayerControl : MonoBehaviour
 
         // calculate move delta
         moveVector = Vector3.zero;
-        moveVector.x = (targetPosition - transform.position).normalized.x * speed;
+        moveVector.x = (targetPosition - transform.position).normalized.x * (speed/2);  // speed/2 is to prevent trembling, otherwise player trembles when going sides in high speeds                    
         moveVector.y = -0.1f;
         moveVector.z = speed;
     }
