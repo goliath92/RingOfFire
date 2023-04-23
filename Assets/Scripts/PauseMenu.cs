@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
@@ -10,11 +9,13 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
+        Debug.Log("Game Paused");
     }
 
     public void resumeGame() 
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        Debug.Log("Game Continues");
     }
 }
