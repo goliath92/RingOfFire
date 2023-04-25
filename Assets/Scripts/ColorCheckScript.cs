@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class ColorCheckScript : MonoBehaviour
 {
     private PlayerControl _playerControl;
+
+    public Button pauseButton;
 
     public GameObject gameManager;
     private GameManager _gameManager;
@@ -28,7 +31,9 @@ public class ColorCheckScript : MonoBehaviour
         playerColor.color = Color.yellow;             
 
         // a color for starting so it doesn't give any error
-        _playerControl.ringColor = Color.yellow;      
+        _playerControl.ringColor = Color.yellow;
+
+        pauseButton.enabled = true;
     }
 
 
@@ -59,7 +64,7 @@ public class ColorCheckScript : MonoBehaviour
     public void chooseRandomColor()
     {       
         playerColor.color = Colors[Random.Range(0, 3)];
-        Debug.Log("New Color Assigned.");                  
+                        
     }
 
     private IEnumerator WaitForColorChange()
@@ -69,10 +74,12 @@ public class ColorCheckScript : MonoBehaviour
 
         chooseRandomColor();
     }
-
+    
     private IEnumerator WaitForDeath()
     {
-        Debug.Log("Player Died.");
+        // if pause button is not disabled in death status, we car continue the game by using it
+        pauseButton.enabled = false;
+        
         yield return new WaitForSeconds(0.5f);
         Time.timeScale = 0;
         
