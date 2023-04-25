@@ -4739,8 +4739,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1588852381}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 1568357261}
+        m_TargetAssemblyTypeName: InGameMenuControl, Assembly-CSharp
         m_MethodName: pauseGame
         m_Mode: 1
         m_Arguments:
@@ -4798,10 +4798,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1588852376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bd0d4f8ec4699c47aa32464d8967bdb, type: 3}
+  m_Script: {fileID: 11500000, guid: 439592d58c0062d42b8fd64e0ca70a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1550756374}
+  gameOverScreen: {fileID: 1542456436}
 --- !u!1 &1604161890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1928019495507802109, guid: 832b7ee9aa6e9db488cfa45b52acdf7d, type: 3}

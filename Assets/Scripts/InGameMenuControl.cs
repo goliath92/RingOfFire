@@ -18,6 +18,10 @@ public class InGameMenuControl : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-
+    }
+    public void pauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 }
