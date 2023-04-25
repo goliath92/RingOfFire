@@ -7,7 +7,8 @@ public class ColorCheckScript : MonoBehaviour
 {
     private PlayerControl _playerControl;
 
-    public Button pauseButton;
+    [SerializeField] Button pauseButton;
+    [SerializeField] GameObject gameOverScreen;
 
     public GameObject gameManager;
     private GameManager _gameManager;
@@ -24,6 +25,7 @@ public class ColorCheckScript : MonoBehaviour
         _playerControl = GetComponent<PlayerControl>();
 
         _gameManager = gameManager.GetComponent<GameManager>();
+
 
         Colors = new[] {Color.red, Color.blue, Color.yellow};
 
@@ -82,6 +84,8 @@ public class ColorCheckScript : MonoBehaviour
         
         yield return new WaitForSeconds(0.5f);
         Time.timeScale = 0;
+        gameOverScreen.SetActive(true);
+        
         
     }
 
