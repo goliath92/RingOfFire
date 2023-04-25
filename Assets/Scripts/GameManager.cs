@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Application.targetFrameRate = 30;
         _colorCheckScript = player.GetComponent<ColorCheckScript>();
         _playerControlScript = player.GetComponent<PlayerControl>();       
     }

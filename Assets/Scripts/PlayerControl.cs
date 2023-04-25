@@ -62,7 +62,6 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Finish"))                                           // stop when reaching the finish line
         {
-            Debug.Log("Mission Completed");
             Time.timeScale = 0;
         }
  
