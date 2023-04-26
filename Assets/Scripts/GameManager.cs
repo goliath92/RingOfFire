@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     private PlayerControl _playerControlScript;
-
+ 
     private ColorCheckScript _colorCheckScript;
 
     public TextMeshProUGUI text;
@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 30;
         _colorCheckScript = player.GetComponent<ColorCheckScript>();
-        _playerControlScript = player.GetComponent<PlayerControl>();       
+        _playerControlScript = player.GetComponent<PlayerControl>(); 
+        
     }
 
 
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour
     {
         //score UI
         text.text = _colorCheckScript.ringCounter.ToString();
-
     }
 
     public void increaseSpeed()
@@ -42,7 +42,5 @@ public class GameManager : MonoBehaviour
 
         }
     }
-
-    
 
 }

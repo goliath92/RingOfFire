@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     private CharacterController controller;
+    [SerializeField] GameObject winScreen;
 
     //Movement
     public float speed = 15;                // Starting speed
@@ -63,6 +64,7 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("Finish"))                                           // stop when reaching the finish line
         {
             Time.timeScale = 0;
+            winScreen.SetActive(true); 
         }
  
         if (other.gameObject.CompareTag("RedRing") && gameObject.tag == "Player")             // change color when pass a ring
