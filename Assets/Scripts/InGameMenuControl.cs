@@ -11,7 +11,7 @@ public class InGameMenuControl : MonoBehaviour
     
     public void restartGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainScene");
         Time.timeScale = 1f;
     }
     public void resumeGame()
