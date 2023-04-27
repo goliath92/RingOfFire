@@ -15,7 +15,8 @@ public class PlayerControl : MonoBehaviour
 
     //Color
     private ColorCheckScript _colorCheckScript;
-    public Color ringColor;                                
+    public Color ringColor;
+
 
     private void Start()
     {
@@ -58,7 +59,18 @@ public class PlayerControl : MonoBehaviour
         desiredLane = Mathf.Clamp(desiredLane, 0, 2);
     }
 
+    // Joystick movement for mobile devices
+    public void joystickLeft()
+    {
+        MoveLane(false);
+    }
+
+    public void joyStickRight()
+    {
+        MoveLane(true);
+    }
   
+    //Contact with objects
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Finish"))                                           // stop when reaching the finish line

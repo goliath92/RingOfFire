@@ -15,6 +15,18 @@ public class GameManager : MonoBehaviour
     public int speedCounter;                  // count as rings collected
     public int speedAmount;                   // how much will speed increase
 
+    [SerializeField] GameObject leftButton;
+    [SerializeField] GameObject rightButton;
+
+    private void Awake()
+    {
+        if (Application.isMobilePlatform)           // if game opens in a mobile device
+        {
+            leftButton.SetActive(true);              // set left and right buttons enable
+            rightButton.SetActive(true);
+        }
+    }
+
 
     private void Start()
     {
