@@ -200,6 +200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6942295134171773062}
     m_Modifications:
+    - target: {fileID: 2128834261, guid: 832b7ee9aa6e9db488cfa45b52acdf7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128834261, guid: 832b7ee9aa6e9db488cfa45b52acdf7d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1263931671153306951, guid: 832b7ee9aa6e9db488cfa45b52acdf7d, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -266,6 +274,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6942295134171773062}
     m_Modifications:
+    - target: {fileID: 2128834261, guid: 84ab12c57d874294493f4c980864d6b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128834261, guid: 84ab12c57d874294493f4c980864d6b5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1263931671153306951, guid: 84ab12c57d874294493f4c980864d6b5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -332,6 +348,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6942295134171773062}
     m_Modifications:
+    - target: {fileID: 994923685, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5097269460907438323, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
       propertyPath: m_Name
       value: BlueRing Variant
