@@ -199,6 +199,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2105830277958081603}
     m_Modifications:
+    - target: {fileID: 994923685, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5097269460907438323, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
       propertyPath: m_Name
       value: BlueRing Variant (1)
@@ -265,6 +269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2105830277958081603}
     m_Modifications:
+    - target: {fileID: 994923685, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5097269460907438323, guid: e9051650d7d1e474ab0905e661f3fd69, type: 3}
       propertyPath: m_Name
       value: BlueRing Variant
