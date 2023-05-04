@@ -33,7 +33,18 @@ public class TileManagerScript : MonoBehaviour
 
         for (int i = 0; i < tileAmountOnScreen; i++)
         {
-            SpawnTile();
+            // this logic is to create obstacle free tiles when starting the game (first 2 tiles will be free)
+            if(i<2)
+            {
+                SpawnTile(0);
+            }
+
+            else
+            {
+                SpawnTile();
+            }
+
+            
         }
         
     }
@@ -47,11 +58,21 @@ public class TileManagerScript : MonoBehaviour
             DeleteTile();
         }
     }
-
-    private void SpawnTile(int prefabIndex = -1)
+    
+    private void SpawnTile(int prefabIndex = -1) //-1 to create random number
     {
         GameObject go;
-        go = Instantiate(TilePrefabs[RandomTileIndex()]) as GameObject;
+
+        if (prefabIndex == -1)
+        {
+            go = Instantiate(TilePrefabs[RandomTileIndex()]) as GameObject;
+        }
+        //The logic in Else is to create obstacle free tiles when starting the game (index 0 is the obstacle free tile)
+        else
+        {
+            go = Instantiate(TilePrefabs[prefabIndex]) as GameObject;  
+        }
+
         // SetParent, so created objects will not be child object under TileManager
         go.transform.SetParent(transform);
         go.transform.position = Vector3.forward * spawnZ;
