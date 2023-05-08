@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject leftButton;
     [SerializeField] GameObject rightButton;
 
+    
+
     private void Awake()
     {
         if (Application.isMobilePlatform)           // if game opens in a mobile device
@@ -31,7 +33,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 30;
-        _colorCheckScript = player.GetComponent<ColorCheckScript>();
+
+        _colorCheckScript = player.GetComponent<ColorCheckScript>();              
+        
         _playerControlScript = player.GetComponent<PlayerControl>(); 
         
     }
@@ -40,7 +44,13 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //score UI
-        text.text = _colorCheckScript.ringCounter.ToString();
+        text.text = _colorCheckScript.ringCounter.ToString();              
+
+        if (_colorCheckScript.ringCounter > PlayerPrefs.GetInt("highScore"))
+        {
+            PlayerPrefs.SetInt("highScore", _colorCheckScript.ringCounter);
+        }
+        
     }
 
     public void increaseSpeed()
