@@ -22,4 +22,11 @@ public class InGameMenuControl : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
+
+    public void returnMainMenu()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1f;
+    }
+
 }
